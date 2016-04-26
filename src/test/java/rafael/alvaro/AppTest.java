@@ -9,8 +9,8 @@ public class AppTest extends BaseTest {
 
   @Test
   public void index() throws Exception {
-    server.get("/")
-        .expect(200)
+    server.get("/TODO")
+        .expect("{\"conteudo\":Rafael,\"i\":\"1\"}")
         .header("Content-Type", "text/html;charset=UTF-8");
   }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 alvaro.
+ * Copyright 2016 rafae.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,36 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package rafael.alvaro;
-
+import java.util.List;
+import javax.xml.ws.Response;
+import org.jooby.mvc.GET;
+import org.jooby.mvc.Path;
+import org.json.simple.JSONObject;
 /**
  *
- * @author alvaro
+ * @author rafael
  */
-public class Todo {
-public  int i;
-public String content;
 
-    Todo(int i, String content) {
-    this.i=i;
-    this.content=content;
-    }
+public class Service {
+    TodoDao todoDao = new TodoDao();
+      JSONObject obj = new JSONObject();
+	public JSONObject getTodo() {
+        List<Todo> teste = todoDao.getAllTodos();
+        for(int i=0;i<teste.size();i++){
+      
+	obj.put("i",teste.get(i).getI());
+	obj.put("conteudo", teste.get(i).getContent());
 
-    public int getI() {
-        return i;
-    }
-
-    public void setI(int i) {
-        this.i = i;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
+        }
+return obj;
+	}
+    
 }
