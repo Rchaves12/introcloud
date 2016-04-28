@@ -6,6 +6,7 @@ import org.jooby.Jooby;
 import org.jooby.MediaType;
 import static org.jooby.Route.GET;
 import org.jooby.mvc.GET;
+import org.jooby.mvc.POST;
 import org.jooby.mvc.Path;
 import org.jooby.mvc.Produces;
 import org.json.simple.JSONObject;
@@ -18,7 +19,7 @@ public class App extends Jooby {
   {
     Service serv = new Service();
     get("/TODO", () -> serv.getTodo());
-    post("/", () -> "hey jooby");
+    post("/", () -> serv.updateTodo(2, "Alvaro"));
     
   }
 
@@ -26,4 +27,6 @@ public class App extends Jooby {
     run(App::new, args);
   }
 
+ 
+  
 }

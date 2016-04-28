@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package rafael.alvaro;
+import java.io.IOException;
 import java.util.List;
 import javax.xml.ws.Response;
 import org.jooby.mvc.GET;
@@ -37,5 +38,14 @@ public class Service {
         }
 return obj;
 	}
+         public String updateTodo(int i, String conteudo) throws IOException{
+      Todo todo = new Todo(i, conteudo);
+      int result = todoDao.updateTodo(todo);// colocar no dao
+      if(result == 1){
+         return "Sucesso"; //retorno trate o retorno
+      }
+      return "erro";
+   }
+
     
 }

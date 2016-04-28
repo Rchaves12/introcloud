@@ -79,4 +79,19 @@ public class TodoDao {
          e.printStackTrace();
       }
    }
+     public int updateTodo(Todo pTodo){
+      List<Todo> todoList = getAllTodos();
+
+      for(Todo todo: todoList){
+         if(todo.getI() == pTodo.getI()){
+            int index = todoList.indexOf(todo);			
+            todoList.set(index, pTodo);
+            saveTodoList(todoList);
+            return 1;
+         }
+      }		
+      return 0;
+   }
+
+     
 }
