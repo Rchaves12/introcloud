@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 rafae.
+ * Copyright 2016 rafael.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,25 +32,21 @@ import java.util.List;
 public class TodoDao {
      public List<Todo> getAllTodos(){
       List<Todo> todoList = null;
-      try {
-         File file = new File("Todo.txt");
-         if (!file.exists()) {
+     
+//         File file = new File("Todo.txt");
+//         if (!file.exists()) {
             Todo todo = new Todo(1, "Rafael" );
             todoList = new ArrayList<Todo>();
             todoList.add(todo);
-            saveTodoList(todoList);		
-         }
-         else{
-            FileInputStream fis = new FileInputStream(file);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            todoList = (List<Todo>) ois.readObject();
-            ois.close();
-         }
-      } catch (IOException e) {
-         e.printStackTrace();
-      } catch (ClassNotFoundException e) {
-         e.printStackTrace();
-      }		
+     //       saveTodoList(todoList);		
+       //  }
+//         else{
+//            FileInputStream fis = new FileInputStream(file);
+//            ObjectInputStream ois = new ObjectInputStream(fis);
+//            todoList = (List<Todo>) ois.readObject();
+//            ois.close();
+//         }
+     	
       return todoList;
    }
      public Todo getTodo(int id){
