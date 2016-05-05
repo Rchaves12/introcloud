@@ -30,17 +30,12 @@ import org.json.simple.JSONObject;
 public class Service {
 
     TodoDao todoDao = new TodoDao();
-    JSONObject obj = new JSONObject();
-
-    public JSONObject getTodo() {
+    
+    //metodo para retornar a lista de todo
+    public List<Todo> getTodo() {
         List<Todo> teste = todoDao.getAllTodos();
-        for (int i = 0; i < teste.size(); i++) {
 
-            obj.put("i", teste.get(i).getI());
-            obj.put("conteudo", teste.get(i).getContent());
-
-        }
-        return obj;
+        return teste;
     }
         // metodo para adicionar na lista
     public String updateTodo(int i, String conteudo) throws IOException {

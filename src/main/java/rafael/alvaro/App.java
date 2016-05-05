@@ -27,8 +27,11 @@ public class App extends Jooby {
         use(new Jackson());
         Service serv = new Service();
 
-        get("/TODO", () -> serv.getTodo());
-
+         //metodo get
+        get("/todos", req -> {
+            List<Todo> todoList = serv.getTodo();
+            return todoList;
+        });
         // metodo Post
         post("/todos", req -> {
             Todo t = req.body().to(Todo.class);

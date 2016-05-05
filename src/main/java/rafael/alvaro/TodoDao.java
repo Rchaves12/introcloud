@@ -27,58 +27,21 @@ import java.util.List;
 
 /**
  *
- * @author rafae
+ * @author rafael
  */
 public class TodoDao {
 
     static List<Todo> todoList = new ArrayList<Todo>();
 
+   // metodo para retornar todos os todos
     public List<Todo> getAllTodos() {
-        List<Todo> todoList = null;
-
-//         File file = new File("Todo.txt");
-//         if (!file.exists()) {
-        Todo todo = new Todo(1, "Rafael");
-        todoList = new ArrayList<Todo>();
-        todoList.add(todo);
-     //       saveTodoList(todoList);		
-        //  }
-//         else{
-//            FileInputStream fis = new FileInputStream(file);
-//            ObjectInputStream ois = new ObjectInputStream(fis);
-//            todoList = (List<Todo>) ois.readObject();
-//            ois.close();
-//         }
+        // se a lista estiver vazia adiciona um item nela
+        if (todoList == null || todoList.size() == 0) {
+            Todo todo = new Todo(1, "Rafael");
+            todoList.add(todo);
+        }
 
         return todoList;
-    }
-
-    public Todo getTodo(int id) {
-        List<Todo> todos = getAllTodos();
-
-        for (Todo todo : todos) {
-            if (todo.getI() == id) {
-                return todo;
-            }
-        }
-        return null;
-    }
-
-    private void saveTodoList(List<Todo> todoList) {
-        try {
-            File file = new File("Todos.txt");
-            FileOutputStream fos;
-
-            fos = new FileOutputStream(file);
-
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(todoList);
-            oos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     //metodo de adição de novo item a lista
 

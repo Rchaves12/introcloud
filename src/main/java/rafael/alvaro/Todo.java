@@ -25,7 +25,7 @@ public class Todo {
 
     public int i;
     public String content;
-
+//instaciando a classe e definindo os json a serem recebidos
     public Todo(@JsonProperty("i") int i, @JsonProperty("content") String content) {
         super();
         this.i = i;
