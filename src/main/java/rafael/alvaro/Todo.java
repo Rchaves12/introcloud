@@ -13,20 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package rafael.alvaro;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  *
  * @author alvaro
  */
 public class Todo {
-public  int i;
-public String content;
 
-    Todo(int i, String content) {
-    this.i=i;
-    this.content=content;
+    public int i;
+    public String content;
+
+    public Todo(@JsonProperty("i") int i, @JsonProperty("content") String content) {
+        super();
+        this.i = i;
+        this.content = content;
     }
 
     public int getI() {

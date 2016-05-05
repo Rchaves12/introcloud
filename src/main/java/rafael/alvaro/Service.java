@@ -14,38 +14,42 @@
  * limitations under the License.
  */
 package rafael.alvaro;
+
 import java.io.IOException;
 import java.util.List;
 import javax.xml.ws.Response;
 import org.jooby.mvc.GET;
 import org.jooby.mvc.Path;
 import org.json.simple.JSONObject;
+
 /**
  *
  * @author rafael
  */
 
 public class Service {
+
     TodoDao todoDao = new TodoDao();
-      JSONObject obj = new JSONObject();
-	public JSONObject getTodo() {
+    JSONObject obj = new JSONObject();
+
+    public JSONObject getTodo() {
         List<Todo> teste = todoDao.getAllTodos();
-        for(int i=0;i<teste.size();i++){
-      
-	obj.put("i",teste.get(i).getI());
-	obj.put("conteudo", teste.get(i).getContent());
+        for (int i = 0; i < teste.size(); i++) {
+
+            obj.put("i", teste.get(i).getI());
+            obj.put("conteudo", teste.get(i).getContent());
 
         }
-return obj;
-	}
-         public String updateTodo(int i, String conteudo) throws IOException{
-      Todo todo = new Todo(i, conteudo);
-      int result = todoDao.updateTodo(todo);// colocar no dao
-      if(result == 1){
-         return "Sucesso"; //retorno trate o retorno
-      }
-      return "erro";
-   }
+        return obj;
+    }
+        // metodo para adicionar na lista
+    public String updateTodo(int i, String conteudo) throws IOException {
+        Todo todo = new Todo(i, conteudo);
+        int result = todoDao.updateTodo(todo);
+        if (result == 1) {
+            return "Sucesso"; //retorno trate o retorno
+        }
+        return "erro";
+    }
 
-    
 }

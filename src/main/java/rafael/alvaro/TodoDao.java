@@ -30,64 +30,63 @@ import java.util.List;
  * @author rafae
  */
 public class TodoDao {
-     public List<Todo> getAllTodos(){
-      List<Todo> todoList = null;
-     
+
+    static List<Todo> todoList = new ArrayList<Todo>();
+
+    public List<Todo> getAllTodos() {
+        List<Todo> todoList = null;
+
 //         File file = new File("Todo.txt");
 //         if (!file.exists()) {
-            Todo todo = new Todo(1, "Rafael" );
-            todoList = new ArrayList<Todo>();
-            todoList.add(todo);
+        Todo todo = new Todo(1, "Rafael");
+        todoList = new ArrayList<Todo>();
+        todoList.add(todo);
      //       saveTodoList(todoList);		
-       //  }
+        //  }
 //         else{
 //            FileInputStream fis = new FileInputStream(file);
 //            ObjectInputStream ois = new ObjectInputStream(fis);
 //            todoList = (List<Todo>) ois.readObject();
 //            ois.close();
 //         }
-     	
-      return todoList;
-   }
-     public Todo getTodo(int id){
-      List<Todo> todos = getAllTodos();
 
-      for(Todo todo: todos){
-         if(todo.getI() == id){
-            return todo;
-         }
-      }
-      return null;
-   }
-     private void saveTodoList(List<Todo> todoList){
-      try {
-         File file = new File("Todos.txt");
-         FileOutputStream fos;
+        return todoList;
+    }
 
-         fos = new FileOutputStream(file);
+    public Todo getTodo(int id) {
+        List<Todo> todos = getAllTodos();
 
-         ObjectOutputStream oos = new ObjectOutputStream(fos);		
-         oos.writeObject(todoList);
-         oos.close();
-      } catch (FileNotFoundException e) {
-         e.printStackTrace();
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
-   }
-     public int updateTodo(Todo pTodo){
-      List<Todo> todoList = getAllTodos();
+        for (Todo todo : todos) {
+            if (todo.getI() == id) {
+                return todo;
+            }
+        }
+        return null;
+    }
 
-      for(Todo todo: todoList){
-         if(todo.getI() == pTodo.getI()){
-            int index = todoList.indexOf(todo);			
-            todoList.set(index, pTodo);
-            saveTodoList(todoList);
-            return 1;
-         }
-      }		
-      return 0;
-   }
+    private void saveTodoList(List<Todo> todoList) {
+        try {
+            File file = new File("Todos.txt");
+            FileOutputStream fos;
 
-     
+            fos = new FileOutputStream(file);
+
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(todoList);
+            oos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //metodo de adição de novo item a lista
+
+    public int updateTodo(Todo pTodo) {
+
+        todoList.add(pTodo);
+        return 1;
+
+    }
+
 }

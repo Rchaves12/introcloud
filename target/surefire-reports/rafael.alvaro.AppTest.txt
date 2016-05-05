@@ -1,15 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: rafael.alvaro.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.83 sec <<< FAILURE! - in rafael.alvaro.AppTest
-index(rafael.alvaro.AppTest)  Time elapsed: 0.5 sec  <<< FAILURE!
-java.lang.AssertionError: expected:<200> but was:<405>
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failNotEquals(Assert.java:743)
-	at org.junit.Assert.assertEquals(Assert.java:118)
-	at org.junit.Assert.assertEquals(Assert.java:555)
-	at org.junit.Assert.assertEquals(Assert.java:542)
-	at org.jooby.test.Client$Response.expect(Client.java:198)
-	at org.jooby.test.Client$Request.expect(Client.java:89)
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.673 sec <<< FAILURE! - in rafael.alvaro.AppTest
+index(rafael.alvaro.AppTest)  Time elapsed: 0.434 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"conteudo":[Rafael,"i":"1"]}> but was:<{"conteudo":["Rafael","i":1]}>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at org.jooby.test.Client$Response.expect(Client.java:193)
+	at org.jooby.test.Client$Request.expect(Client.java:81)
 	at rafael.alvaro.AppTest.index(AppTest.java:13)
 
