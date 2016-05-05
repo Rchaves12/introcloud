@@ -1,4 +1,4 @@
-# introclound
+# Introclound
 
 
 # Endpoints
@@ -10,7 +10,7 @@
 **URL:**
 
 ```
-GET: /todos
+GET: localhost:8080/todos
 ```
 
 **Response**
