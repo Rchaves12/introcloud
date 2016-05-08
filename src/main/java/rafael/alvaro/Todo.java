@@ -32,6 +32,10 @@ public class Todo {
         this.content = content;
     }
 
+    Todo(String content) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getI() {
         return i;
     }

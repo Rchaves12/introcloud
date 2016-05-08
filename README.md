@@ -28,3 +28,29 @@ GET: localhost:8080/todos
 ]
 ```
 
+## Create a todo
+
+### Request:
+
+**URL:**
+
+```
+POST: /todo
+```
+
+**Body:**
+
+```
+{
+	title: "title"
+}
+```
+
+**Response:**
+
+```
+{
+	title: "title",
+	id: 1
+}
+```
